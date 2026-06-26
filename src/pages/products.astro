@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="产品与能力 | 元物质" description="元物质产品与能力包括元小鲲科研智算一体机、元Space科研智算平台，以及工程能力与其他产品。">
+  <section class="page-title">
+    <div class="section-inner">
+      <div class="eyebrow">产品与能力</div>
+      <h1>重点突出元小鲲和元Space，工程能力作为可信底座。</h1>
+      <p>元小鲲负责把算力带进实验室，元Space负责让算力变得可见、可管、可持续使用。其他传统产品和工程能力在这里统一收纳。</p>
+    </div>
+  </section>
+  <section class="page-section">
+    <div class="section-inner product-showcase">
+      <article class="product-card">
+        <img src="/assets/xiaokun-hero-render.png" alt="元小鲲科研智算一体机" />
+        <div class="product-card-content">
+          <div class="eyebrow">核心产品</div>
+          <h3>元小鲲科研智算一体机</h3>
+          <p>面向课题组和实验室的科研智算一体机，以浸没式液冷为首要公开卖点。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="/xiaokun/">查看详情</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card dark">
+        <img src="/assets/yuanspace-dashboard.png" alt="元Space科研智算平台" />
+        <div class="product-card-content">
+          <div class="eyebrow">平台能力</div>
+          <h3>元Space 科研智算平台</h3>
+          <p>围绕用户、资源、任务、环境和数据，支撑课题组科研算力的日常管理。</p>
+          <div class="hero-actions">
+            <a class="button secondary" href="/yuanspace/">查看详情</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="page-section soft-band">
+    <div class="section-inner">
+      <div class="section-head">
+        <div class="eyebrow">工程能力与其他产品</div>
+        <h2>传统产品不抢主线，但要证明元物质能交付。</h2>
+      </div>
+      <div class="grid-4">
+        {['元Meta', '元Power', '元Data', '元Link', '元Base', '元Safe', '交付与运维服务', '智算中心工程能力'].map((name) => (
+          <article class="support-card">
+            <h3>{name}</h3>
+            <p>后续补充具体说明。第一版作为工程能力入口保留。</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

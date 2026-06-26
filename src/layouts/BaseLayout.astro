@@ -1,0 +1,68 @@
+---
+import '../styles/global.css';
+
+const {
+  title = '元物质 | 科研智算能力建设公司',
+  description = '元物质面向高校课题组和科研组织，提供元小鲲科研智算一体机、元Space 和科研智算能力建设服务。'
+} = Astro.props;
+
+const navItems = [
+  { href: '/', label: '首页' },
+  { href: '/scenarios/', label: '科研场景' },
+  { href: '/products/', label: '产品与能力' },
+  { href: '/cases/', label: '客户实践' },
+  { href: '/research-computing/', label: '科研智算' },
+  { href: '/resources/', label: '动态与资源' },
+  { href: '/support/', label: '技术支持' },
+  { href: '/about/', label: '关于元物质' }
+];
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/assets/logo.jpg" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="主导航">
+        <a class="brand-link" href="/">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-text">
+            <span>元物质</span>
+            <span>科研智算能力建设公司</span>
+          </span>
+        </a>
+        <div class="nav-links">
+          {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+          <a class="nav-ghost" href="/resources/">文档中心</a>
+          <a class="nav-cta" href="/contact/">联系咨询</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div>
+          <strong>元物质</strong>
+          <div>科研智算能力建设伙伴</div>
+        </div>
+        <div class="footer-links">
+          <a href="/xiaokun/">元小鲲</a>
+          <a href="/yuanspace/">元Space</a>
+          <a href="/support/">产品查询</a>
+          <a href="/contact/">联系我们</a>
+        </div>
+        <div>© 2026 元物质. All rights reserved.</div>
+      </div>
+    </footer>
+  </body>
+</html>
