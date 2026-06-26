@@ -8,16 +8,16 @@
 
 ```bash
 npm install
-npm run build
+npm run package
 ```
 
-构建成功后，会生成：
+构建和打包成功后，会生成：
 
 ```text
-dist/
+yuanwuzhi-website-dist.zip
 ```
 
-这个目录就是要部署到服务器的静态网站文件。
+这个压缩包里直接包含静态网站文件，解压后应直接出现 `index.html`、`assets/`、`xiaokun/` 等内容。
 
 ## 二、上传到腾讯云服务器
 
@@ -29,7 +29,7 @@ dist/
 /www/wwwroot/yuanwuzhi-website/
 ```
 
-把 `dist/` 里的内容放进去，而不是把 `dist` 文件夹本身套进去。
+把 `yuanwuzhi-website-dist.zip` 解压到该目录。注意不要多套一层文件夹。
 
 正确结构示例：
 
@@ -40,6 +40,13 @@ dist/
 /www/wwwroot/yuanwuzhi-website/yuanspace/
 /www/wwwroot/yuanwuzhi-website/sitemap.xml
 /www/wwwroot/yuanwuzhi-website/robots.txt
+```
+
+如果使用命令行，可以参考：
+
+```bash
+mkdir -p /www/wwwroot/yuanwuzhi-website
+unzip -o yuanwuzhi-website-dist.zip -d /www/wwwroot/yuanwuzhi-website
 ```
 
 ## 三、Nginx 配置示例

@@ -50,16 +50,30 @@ npm run build
 npm run preview
 ```
 
+## 打包给服务器
+
+```bash
+npm run package
+```
+
+打包后会生成：
+
+```text
+yuanwuzhi-website-dist.zip
+```
+
+这个 zip 可以直接上传到腾讯云服务器并解压到网站根目录。
+
 ## 部署到腾讯云服务器的基本方式
 
 1. 在本地执行：
 
    ```bash
    npm install
-   npm run build
+   npm run package
    ```
 
-2. 将 `dist/` 目录上传到腾讯云服务器，例如：
+2. 将 `yuanwuzhi-website-dist.zip` 上传到腾讯云服务器并解压到网站目录，例如：
 
    ```text
    /www/wwwroot/yuanwuzhi-website/
