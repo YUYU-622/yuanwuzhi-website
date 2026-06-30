@@ -5,42 +5,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   title="元物质 | 科研智算能力建设伙伴"
   description="元物质面向高校课题组、实验室和科研组织，提供元小鲲科研智算一体机、元Space科研智算平台和科研智算能力建设服务。"
 >
-  <section class="hero">
+  <section class="hero home-hero">
     <div class="hero-grid section-inner">
       <div class="hero-copy">
         <span class="badge">科研 AI 时代的新型智算入口</span>
-        <h1>连接课题组、实验室与高校智算平台。</h1>
+        <h1>让 AI 算力更容易进入真实科研现场。</h1>
         <p class="lead">
-          元物质围绕高校科研场景，提供元小鲲科研智算一体机、元Space 科研智算平台与工程交付能力，让 AI 算力更容易进入真实科研现场。
+          元物质围绕高校科研场景，提供元小鲲科研智算一体机、元Space 科研智算平台与工程交付能力，帮助课题组、实验室和院系平台把算力用起来、管起来、沉淀下来。
         </p>
         <div class="hero-actions">
           <a class="button primary" href="/xiaokun/">了解元小鲲</a>
           <a class="button secondary" href="/yuanspace/">查看元Space</a>
-        </div>
-        <div class="mini-metrics" aria-label="产品特点">
-          <div class="mini-metric">
-            <strong>浸没式液冷</strong>
-            <span>高负载下更稳定</span>
-          </div>
-          <div class="mini-metric">
-            <strong>低噪运行</strong>
-            <span>更适合实验室空间</span>
-          </div>
-          <div class="mini-metric">
-            <strong>元Space管理</strong>
-            <span>资源、用户、环境可见</span>
-          </div>
-          <div class="mini-metric">
-            <strong>小型集群</strong>
-            <span>按课题组阶段扩展</span>
-          </div>
+          <a class="button text" href="/scenarios/">查看科研场景 →</a>
         </div>
       </div>
-      <div class="hero-visual" aria-label="元小鲲科研智算一体机">
-        <img class="hero-product" src="/assets/xiaokun-hero-render.png" alt="元小鲲科研智算一体机产品视觉" />
-        <div class="hero-chip-card">
-          <h3>课题组小型智算中心</h3>
-          <p>元小鲲 + 元Space + 科研工作流</p>
+      <div class="hero-visual home-hero-visual" aria-label="元小鲲科研智算一体机">
+        <img class="home-hero-image" src="/assets/xiaokun-hero-render.png" alt="元小鲲科研智算一体机产品视觉" />
+        <div class="hero-chip-card home-hero-card">
+          <div class="eyebrow">课题组小型智算中心</div>
+          <h3>元小鲲 + 元Space + 科研工作流</h3>
           <div class="chip-list">
             <div>
               <div class="chip-row"><span>算力可见</span><span>GPU / 用户 / 任务</span></div>
@@ -48,14 +31,85 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
             <div>
               <div class="chip-row"><span>环境可继承</span><span>镜像 / 工具 / 数据</span></div>
-              <div class="progress"><i style="width: 68%"></i></div>
-            </div>
-            <div>
-              <div class="chip-row"><span>科研少折腾</span><span>部署 / 培训 / 运维</span></div>
-              <div class="progress"><i style="width: 76%"></i></div>
+              <div class="progress"><i style="width: 70%"></i></div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="section-inner hero-proof">
+      <div><strong>浸没式液冷</strong><span>高负载下更稳定</span></div>
+      <div><strong>低噪运行</strong><span>更适合实验室空间</span></div>
+      <div><strong>元Space 管理</strong><span>资源、用户、环境可见</span></div>
+      <div><strong>小型集群</strong><span>按课题组阶段扩展</span></div>
+    </div>
+  </section>
+
+  <section class="page-section problem-section">
+    <div class="section-inner split">
+      <div class="section-head">
+        <div class="eyebrow">科研现场的问题</div>
+        <h2>科研团队缺的不是一台 GPU，而是一套可持续使用的算力秩序。</h2>
+      </div>
+      <div class="problem-grid">
+        <article class="problem-item">
+          <span>01</span>
+          <h3>设备难进实验室</h3>
+          <p>噪音、散热、空间和维护压力，让本地高性能设备很难贴近科研现场。</p>
+        </article>
+        <article class="problem-item">
+          <span>02</span>
+          <h3>算力难被看见</h3>
+          <p>谁在用卡、任务排队多久、资源是否闲置，往往依赖人工经验判断。</p>
+        </article>
+        <article class="problem-item">
+          <span>03</span>
+          <h3>环境难以继承</h3>
+          <p>学生毕业、项目切换、工具升级后，实验环境和数据经验容易断档。</p>
+        </article>
+        <article class="problem-item">
+          <span>04</span>
+          <h3>科研支持不成体系</h3>
+          <p>采购、部署、培训、运维和科研工作流分散，团队需要反复协调。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="section-inner">
+      <div class="section-head center">
+        <div class="eyebrow">元物质怎么做</div>
+        <h2>用一个本地入口、一个平台底座和一套工程能力，连接科研算力全流程。</h2>
+      </div>
+      <div class="solution-grid">
+        <article class="solution-card primary-solution">
+          <img src="/assets/xiaokun-hero-render.png" alt="元小鲲科研智算一体机" />
+          <div>
+            <div class="eyebrow">元小鲲科研智算一体机</div>
+            <h3>让 AI 算力进入课题组和实验室。</h3>
+            <p>以浸没式液冷形态降低噪音与散热压力，结合本地部署和小型集群扩展，帮助科研团队更快启动本地 AI 科研环境。</p>
+            <a class="button text" href="/xiaokun/">进入产品页 →</a>
+          </div>
+        </article>
+        <article class="solution-card">
+          <img src="/assets/yuanspace-dashboard.png" alt="元Space 科研智算平台界面" />
+          <div>
+            <div class="eyebrow">元Space 科研智算平台</div>
+            <h3>让资源、任务、环境和用户进入同一个界面。</h3>
+            <p>围绕课题组管理、算力资源、计算任务、数据与环境，帮助科研团队建立可见、可管、可延续的使用秩序。</p>
+            <a class="button text" href="/yuanspace/">查看平台能力 →</a>
+          </div>
+        </article>
+        <article class="solution-card">
+          <div class="ability-mark">ENG</div>
+          <div>
+            <div class="eyebrow">工程能力与其他产品</div>
+            <h3>支撑学校、院系与实验室的不同建设方式。</h3>
+            <p>围绕 GPU、CPU、网络、存储、安全、交付与运维，提供科研智算基础设施建设所需的工程能力。</p>
+            <a class="button text" href="/products/">了解产品与能力 →</a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -63,124 +117,48 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="page-section band">
     <div class="section-inner">
       <div class="section-head">
-        <div class="eyebrow">元物质是谁</div>
-        <h2>从算力建设到科研能力建设。</h2>
-        <p>
-          AI 正在成为科研基础工具。元物质关注的不只是 GPU 和服务器，而是科研团队如何持续获得、使用、管理和沉淀 AI 科研能力。
-        </p>
+        <div class="eyebrow">科研场景</div>
+        <h2>从学校平台到课题组节点，按科研组织的真实使用方式设计。</h2>
       </div>
-      <div class="grid-4">
-        <article class="feature-card">
-          <span class="icon">01</span>
-          <h3>学校智算中心建设</h3>
-          <p>面向学校和公共平台，支持算力、机房、网络、存储与平台能力建设。</p>
-        </article>
-        <article class="feature-card">
-          <span class="icon">02</span>
-          <h3>院系科研算力平台</h3>
-          <p>帮助院系将分散资源组织成可管理、可统计、可运维的科研算力平台。</p>
-        </article>
-        <article class="feature-card">
-          <span class="icon">03</span>
-          <h3>课题组小型智算中心</h3>
-          <p>通过元小鲲与元Space，让课题组拥有自己的本地科研智算入口。</p>
-        </article>
-        <article class="feature-card">
-          <span class="icon">04</span>
-          <h3>实验室 AI 科研算力</h3>
-          <p>面向青年 PI 和 AI 化转型团队，降低部署、环境和运维门槛。</p>
-        </article>
+      <div class="scenario-strip">
+        <a href="/scenarios/">
+          <span>学校智算中心建设</span>
+          <strong>面向校级平台与公共算力基础设施</strong>
+        </a>
+        <a href="/scenarios/">
+          <span>院系科研算力平台</span>
+          <strong>将院系分散资源组织成可管理平台</strong>
+        </a>
+        <a href="/scenarios/">
+          <span>课题组小型智算中心</span>
+          <strong>元小鲲 + 元Space + 科研工作流</strong>
+        </a>
+        <a href="/scenarios/">
+          <span>实验室 AI 科研算力</span>
+          <strong>面向青年 PI 与 AI 化转型团队</strong>
+        </a>
       </div>
     </div>
   </section>
 
   <section class="page-section">
-    <div class="section-inner">
-      <div class="section-head">
-        <div class="eyebrow">产品与能力</div>
-        <h2>以元小鲲进入科研现场，以元Space承载平台能力。</h2>
-        <p>
-          元小鲲提供课题组侧的本地科研智算入口，元Space 提供资源、用户、任务和环境管理能力，工程交付能力支撑学校、院系与实验室的不同建设场景。
-        </p>
-      </div>
-      <div class="product-showcase">
-        <article class="product-card">
-          <img src="/assets/xiaokun-hero-render.png" alt="元小鲲科研智算一体机" />
-          <div class="product-card-content">
-            <div class="eyebrow">元小鲲科研智算一体机</div>
-            <h3>把 AI 科研算力安静地放进课题组。</h3>
-            <p>以浸没式液冷为首要公开卖点，结合元Space基础管理能力和交付服务，帮助课题组更低门槛启动本地 AI 科研环境。</p>
-            <div class="pill-row">
-              <span class="pill">浸没式液冷</span>
-              <span class="pill">低噪部署</span>
-              <span class="pill">小型集群</span>
-            </div>
-          </div>
-        </article>
-        <article class="product-card dark">
-          <img src="/assets/yuanspace-dashboard.png" alt="元Space科研智算平台界面" />
-          <div class="product-card-content">
-            <div class="eyebrow">元Space 科研智算平台</div>
-            <h3>让算力从“有设备”走向“用得起来”。</h3>
-            <p>围绕用户、课题组、GPU资源、任务、环境和数据，帮助科研团队建立更清晰的使用秩序。</p>
-            <div class="pill-row">
-              <span class="pill">资源可视</span>
-              <span class="pill">任务管理</span>
-              <span class="pill">环境支撑</span>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="page-section soft-band">
-    <div class="section-inner split">
-      <div>
-        <div class="section-head">
-          <div class="eyebrow">为什么是浸没式液冷</div>
-          <h2>不是为了炫技，而是为了让算力设备更接近科研现场。</h2>
+    <div class="section-inner dark-panel home-platform">
+      <div class="dark-grid">
+        <div>
+          <div class="eyebrow">平台能力</div>
+          <h2>硬件进入现场之后，平台负责让它持续可用。</h2>
           <p>
-            课题组关心的不只是参数，还包括能不能放进实验室、运行时会不会打扰学生、是否容易观察状态、出问题后是否有人负责。
+            元Space 不是额外的后台，而是科研团队使用算力的工作台。它把用户、课题组、GPU 资源、任务、环境和数据组织起来，让算力从“有设备”走向“用得起来”。
           </p>
-        </div>
-        <div class="grid-2">
-          <article class="card">
-            <h3>降低噪音压力</h3>
-            <p>减少传统高性能设备对实验室和办公空间的影响，让本地算力更适合日常科研。</p>
-          </article>
-          <article class="card">
-            <h3>增强状态感知</h3>
-            <p>透明窗口、液体流动和状态面板，让算力设备不再只是机房里的黑盒。</p>
-          </article>
-        </div>
-      </div>
-      <div class="media-panel">
-        <img src="/assets/xiaokun-hero-render.png" alt="元小鲲科研智算一体机" />
-      </div>
-    </div>
-  </section>
-
-  <section class="page-section">
-    <div class="section-inner">
-      <div class="dark-panel">
-        <div class="dark-grid">
-          <div>
-            <div class="eyebrow">元Space 平台能力</div>
-            <h2>让算力资源、科研任务和实验环境进入同一个界面。</h2>
-            <p>
-              元Space 围绕课题组的科研协作方式组织资源，让 GPU 使用、任务运行、成员权限和环境管理从零散经验变成可见秩序。
-            </p>
-            <div class="pill-row">
-              <span class="pill">课题组管理</span>
-              <span class="pill">算力运维</span>
-              <span class="pill">计算任务</span>
-              <span class="pill">数据与环境</span>
-            </div>
+          <div class="pill-row">
+            <span class="pill">资源可视</span>
+            <span class="pill">任务管理</span>
+            <span class="pill">用户权限</span>
+            <span class="pill">环境支撑</span>
           </div>
-          <div class="dashboard-card">
-            <img src="/assets/yuanspace-login.png" alt="元Space登录界面" />
-          </div>
+        </div>
+        <div class="dashboard-card">
+          <img src="/assets/yuanspace-dashboard.png" alt="元Space 科研智算平台仪表盘" />
         </div>
       </div>
     </div>
@@ -190,8 +168,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="section-inner">
       <div class="section-head">
         <div class="eyebrow">客户实践</div>
-        <h2>面向不同科研组织，沉淀可复用的建设经验。</h2>
-        <p>从学校平台到课题组节点，元物质持续围绕真实科研场景优化产品、平台与交付方式。</p>
+        <h2>先从典型科研场景开始，逐步沉淀真实案例。</h2>
+        <p>围绕学校、院系、课题组和实验室的真实使用方式，持续沉淀可复用的建设经验。</p>
       </div>
       <div class="grid-3">
         <article class="case-card">
@@ -216,8 +194,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="cta-band">
     <div class="section-inner cta-grid">
       <div>
-        <h2>正在评估课题组本地 AI 科研算力？</h2>
-        <p>如果你正在搭建新实验室、推进 AI 化科研，或者希望解决课题组 GPU 噪音、散热、环境和管理问题，可以联系我们一起评估。</p>
+        <h2>正在评估课题组或实验室的 AI 科研算力？</h2>
+        <p>可以从部署空间、任务类型、预算阶段、噪音要求和现有算力情况开始，一起判断适合一体机、小型集群还是平台化建设。</p>
       </div>
       <a class="button secondary" href="/contact/">联系咨询</a>
     </div>
