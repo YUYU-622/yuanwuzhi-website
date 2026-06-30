@@ -153,6 +153,11 @@ select {
   box-shadow: none;
 }
 
+.button.text:hover {
+  transform: translateX(4px);
+  color: #0f766e;
+}
+
 .section-inner {
   width: min(1360px, calc(100% - 64px));
   margin: 0 auto;
@@ -573,6 +578,99 @@ p {
     linear-gradient(180deg, #f7fbff, #ffffff);
 }
 
+.anchor-section {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(37, 99, 235, 0.12), transparent 30%),
+    linear-gradient(180deg, #ffffff, #f2f7ff);
+}
+
+.anchor-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
+  gap: 46px;
+  align-items: center;
+}
+
+.anchor-flow {
+  display: grid;
+  gap: 12px;
+}
+
+.anchor-flow div {
+  display: grid;
+  grid-template-columns: 42px 130px minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+  padding: 16px 18px;
+  border: 1px solid rgba(37, 99, 235, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.82);
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.anchor-flow div:hover {
+  transform: translateX(6px);
+  border-color: rgba(37, 99, 235, 0.34);
+  background: #eaf3ff;
+}
+
+.anchor-flow span {
+  color: var(--brand-deep);
+  font-size: 13px;
+  font-weight: 1000;
+}
+
+.anchor-flow strong {
+  color: var(--ink);
+  font-size: 20px;
+}
+
+.anchor-flow p {
+  color: var(--muted);
+}
+
+.anchor-visual {
+  position: relative;
+  min-height: 520px;
+  overflow: hidden;
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 78% 22%, rgba(6, 182, 212, 0.26), transparent 30%),
+    linear-gradient(135deg, #0b1220, #1d4ed8);
+  box-shadow: 0 30px 70px rgba(15, 23, 42, 0.22);
+}
+
+.anchor-visual::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.72), transparent);
+}
+
+.anchor-product,
+.anchor-dashboard {
+  position: absolute;
+  border-radius: 8px;
+  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.22);
+}
+
+.anchor-product {
+  right: -6%;
+  bottom: 26px;
+  width: 72%;
+}
+
+.anchor-dashboard {
+  left: 34px;
+  top: 44px;
+  width: 58%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
 .soft-band {
   background:
     linear-gradient(180deg, rgba(238, 247, 250, 0.72), rgba(247, 251, 253, 0));
@@ -657,6 +755,7 @@ p {
   align-content: start;
   gap: 22px;
   min-height: 100%;
+  overflow: hidden;
   padding: 24px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -682,6 +781,11 @@ p {
   border-radius: 8px;
   object-fit: cover;
   background: #f3f7fb;
+  transition: transform 220ms ease;
+}
+
+.solution-card:hover img {
+  transform: scale(1.035);
 }
 
 .solution-card h3 {
@@ -1146,6 +1250,7 @@ p {
   .product-hero-grid,
   .split,
   .product-showcase,
+  .anchor-grid,
   .dark-grid {
     grid-template-columns: 1fr;
   }
@@ -1172,6 +1277,10 @@ p {
 
   .scenario-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .anchor-visual {
+    min-height: 460px;
   }
 
   .scenario-strip a:nth-child(2) {
@@ -1272,10 +1381,31 @@ p {
   .problem-grid,
   .solution-grid,
   .scenario-strip,
+  .anchor-flow div,
   .grid-2,
   .grid-3,
   .grid-4 {
     grid-template-columns: 1fr;
+  }
+
+  .anchor-flow div {
+    gap: 8px;
+  }
+
+  .anchor-visual {
+    min-height: 360px;
+  }
+
+  .anchor-dashboard {
+    width: 76%;
+    left: 18px;
+    top: 22px;
+  }
+
+  .anchor-product {
+    width: 92%;
+    right: -20%;
+    bottom: 18px;
   }
 
   .hero-proof {
