@@ -8,13 +8,81 @@ const {
 
 const navItems = [
   { href: '/', label: '首页' },
-  { href: '/scenarios/', label: '科研场景' },
-  { href: '/products/', label: '产品与能力' },
-  { href: '/cases/', label: '客户实践' },
-  { href: '/research-computing/', label: '科研智算' },
-  { href: '/resources/', label: '动态与资源' },
-  { href: '/support/', label: '技术支持' },
-  { href: '/about/', label: '关于元物质' }
+  {
+    href: '/scenarios/',
+    label: '科研场景',
+    children: [
+      { href: '/scenarios/', label: '学校智算中心建设' },
+      { href: '/scenarios/', label: '院系科研算力平台' },
+      { href: '/scenarios/', label: '课题组小型智算中心' },
+      { href: '/scenarios/', label: '实验室 AI 科研算力' }
+    ]
+  },
+  {
+    href: '/products/',
+    label: '产品与能力',
+    children: [
+      { href: '/xiaokun/', label: '元小鲲科研智算一体机' },
+      { href: '/yuanspace/', label: '元Space 科研智算平台' },
+      {
+        href: '/products/',
+        label: '工程能力与其他产品',
+        children: [
+          { href: '/products/', label: '元Meta' },
+          { href: '/products/', label: '元Power' },
+          { href: '/products/', label: '元Data' },
+          { href: '/products/', label: '元Link' },
+          { href: '/products/', label: '元Base' },
+          { href: '/products/', label: '元Safe' },
+          { href: '/products/', label: '交付与运维服务' }
+        ]
+      }
+    ]
+  },
+  {
+    href: '/cases/',
+    label: '客户实践',
+    children: [
+      { href: '/cases/', label: '典型需求场景' },
+      { href: '/cases/', label: '高校与科研机构' },
+      { href: '/cases/', label: '案例持续更新' }
+    ]
+  },
+  {
+    href: '/research-computing/',
+    label: '科研智算',
+    children: [
+      { href: '/research-computing/', label: '什么是科研智算' },
+      { href: '/research-computing/', label: '科研算网' },
+      { href: '/research-computing/', label: '科研工作流' },
+      { href: '/faq/', label: 'FAQ' }
+    ]
+  },
+  {
+    href: '/resources/',
+    label: '动态与资源',
+    children: [
+      { href: '/resources/', label: '新闻活动' },
+      { href: '/resources/', label: '媒体报道' },
+      { href: '/resources/', label: '文档中心' }
+    ]
+  },
+  {
+    href: '/support/',
+    label: '技术支持',
+    children: [
+      { href: '/support/', label: '产品查询入口' }
+    ]
+  },
+  {
+    href: '/about/',
+    label: '关于元物质',
+    children: [
+      { href: '/about/', label: '公司介绍' },
+      { href: '/about/', label: '加入我们' },
+      { href: '/contact/', label: '联系我们' }
+    ]
+  }
 ];
 ---
 <!doctype html>
@@ -36,7 +104,32 @@ const navItems = [
           <img class="brand-logo" src="/assets/yuanwuzhi-logo-transparent-blue.png" alt="元物质" />
         </a>
         <div class="nav-links">
-          {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+          {navItems.map((item) => (
+            <div class:list={['nav-item', item.children && 'has-menu']}>
+              <a class="nav-link" href={item.href}>{item.label}</a>
+              {item.children && (
+                <div class="nav-menu">
+                  <div class="nav-menu-panel">
+                    {item.children.map((child) => (
+                      <div class:list={['nav-menu-row', child.children && 'has-children']}>
+                        <a href={child.href}>
+                          <span>{child.label}</span>
+                          {child.children && <b>›</b>}
+                        </a>
+                        {child.children && (
+                          <div class="nav-submenu">
+                            {child.children.map((grandchild) => (
+                              <a href={grandchild.href}>{grandchild.label}</a>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
           <a class="nav-ghost" href="/resources/">文档中心</a>
           <a class="nav-cta" href="/contact/">联系咨询</a>
         </div>
