@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const painPoints = [
+  ['network', '资源分散', 'GPU、服务器和存储分布在不同学院、课题组和机房，难以统一调度'],
+  ['monitor', '使用不可见', '资源占用、任务排队和闲置情况缺少持续可观察的数据'],
+  ['shield', '运维压力高', '供电、散热、网络、安全和平台运维需要跨部门协同'],
+  ['workflow', '科研体验割裂', '科研团队希望稳定使用算力，但常被环境、权限和资源申请流程打断']
+];
+
+const layers = [
+  ['server', '基础设施层', 'GPU / CPU / 存储 / 网络 / 机房环境', '建设稳定、高性能、可扩展的科研算力底座'],
+  ['platform', '平台管理层', '元Space 统一纳管 / 资源调度 / 用户权限 / 任务管理', '把分散资源组织成可申请、可统计、可运营的平台'],
+  ['service', '交付运维层', '规划设计 / 部署实施 / 培训巡检 / 持续优化', '让校级平台长期服务科研团队，而不是停留在一次性交付']
+];
+
+const products = ['元Meta', '元Power', '元Data', '元Link', '元Base', '元Safe'];
+
+const process = [
+  ['01', '现状评估', '梳理现有算力、机房条件、网络存储和科研团队使用方式'],
+  ['02', '架构设计', '确定资源池规模、平台能力、数据中心环境和运维边界'],
+  ['03', '工程交付', '完成设备、网络、存储、机房环境和平台部署'],
+  ['04', '平台接入', '接入元Space，配置用户、权限、资源和任务管理规则'],
+  ['05', '持续运营', '通过培训、巡检和数据反馈持续优化学校科研算力服务']
+];
+---
+
+<BaseLayout
+  title="学校智算中心建设 | 元物质"
+  description="元物质面向高校公共科研平台，提供算力资源池、数据中心基础设施、元Space统一管理平台和持续交付运维能力"
+>
+  <section class="school-proto-hero">
+    <div class="section-inner">
+      <div class="school-hero-stage" aria-label="学校智算中心建设首图">
+        <img class="school-hero-image" src="/assets/school-computing-center-hero.png" alt="高校智算中心与数据中心场景" />
+        <div class="school-hero-content">
+          <span class="badge">科研场景 / 校级平台</span>
+          <h1>面向高校公共科研平台的智算中心建设</h1>
+          <p>
+            从算力资源池、数据中心基础设施到统一管理平台，帮助学校建设可共享、可运营、可持续服务科研团队的智算底座
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#school-proto-architecture">查看建设思路</a>
+            <a class="button secondary" href="/contact/">预约建设评估</a>
+          </div>
+        </div>
+        <div class="school-dashboard-card">
+          <img src="/assets/yuanspace-dashboard.png" alt="元Space 科研智算平台仪表盘" />
+        </div>
+        <div class="school-hero-metrics">
+          <div><strong>GPU 资源池</strong><span>统一接入</span></div>
+          <div><strong>元Space</strong><span>平台纳管</span></div>
+          <div><strong>交付运维</strong><span>持续服务</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section school-proto-audience">
+    <div class="section-inner school-proto-split">
+      <div class="section-head">
+        <div class="eyebrow">适合对象</div>
+        <h2>面向负责公共科研算力建设与运营的校级团队</h2>
+        <p>学校级智算中心关注的不只是硬件采购，而是公共算力如何被建设、管理、运营，并持续服务不同学院和科研团队</p>
+      </div>
+      <div class="school-audience-grid">
+        <article>
+          <span class="school-icon network" aria-hidden="true"></span>
+          <strong>信息中心</strong>
+          <span>关注机房、网络、资源治理和长期运维</span>
+        </article>
+        <article>
+          <span class="school-icon platform" aria-hidden="true"></span>
+          <strong>科研院 / 公共平台</strong>
+          <span>关注科研团队能否方便申请和稳定使用算力</span>
+        </article>
+        <article>
+          <span class="school-icon workflow" aria-hidden="true"></span>
+          <strong>多学院共享平台</strong>
+          <span>关注资源分配、权限管理、使用统计和服务边界</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section school-proto-problems">
+    <div class="section-inner">
+      <div class="section-head">
+        <div class="eyebrow">常见问题</div>
+        <h2>学校要解决的不是有没有算力，而是算力能否形成公共服务能力</h2>
+      </div>
+      <div class="school-problem-grid">
+        {painPoints.map(([icon, title, desc]) => (
+          <article>
+            <span class={`school-icon ${icon}`} aria-hidden="true"></span>
+            <h3>{title}</h3>
+            <p>{desc}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section school-proto-architecture" id="school-proto-architecture">
+    <div class="section-inner">
+      <div class="section-head center">
+        <div class="eyebrow">建设思路</div>
+        <h2>用三层能力把硬件、平台和运维组织起来</h2>
+      </div>
+      <div class="school-layer-stack">
+        {layers.map(([icon, name, ability, desc]) => (
+          <article>
+            <span class={`school-icon ${icon}`} aria-hidden="true"></span>
+            <div>
+              <span>{name}</span>
+              <h3>{ability}</h3>
+            </div>
+            <p>{desc}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section school-proto-assets">
+    <div class="section-inner school-assets-grid">
+      <div class="school-assets-copy">
+        <div class="section-head">
+          <div class="eyebrow">工程能力</div>
+          <h2>以工程模块支撑学校智算中心的整体建设</h2>
+          <p>元Meta、元Power、元Data、元Link、元Base、元Safe 作为底层工程能力，支撑算力、网络、存储、机房和安全等建设需求</p>
+        </div>
+        <div class="school-product-pills">
+          {products.map((item) => <span>{item}</span>)}
+        </div>
+      </div>
+      <div class="school-assets-panel">
+        <img src="/assets/yuanspace-groups.png" alt="元Space 课题组管理界面" />
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section school-proto-process">
+    <div class="section-inner">
+      <div class="section-head">
+        <div class="eyebrow">建设流程</div>
+        <h2>从现状评估到持续运营，减少一次性交付后的断层</h2>
+      </div>
+      <div class="school-process-grid">
+        {process.map(([num, title, desc], index) => (
+          <article>
+            <span>{num}</span>
+            <h3>{title}</h3>
+            <p>{desc}</p>
+            {index < process.length - 1 && <i aria-hidden="true"></i>}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="section-inner cta-grid">
+      <div>
+        <h2>准备评估学校级科研算力平台建设</h2>
+        <p>可以先从现有设备、机房条件、使用人群、科研任务和运维边界开始梳理，判断适合新建、扩容还是平台化改造</p>
+      </div>
+      <a class="button secondary" href="/contact/">预约建设评估</a>
+    </div>
+  </section>
+</BaseLayout>

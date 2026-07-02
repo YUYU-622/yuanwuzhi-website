@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const painPoints = [
+  ['platform', '账号与权限分散', '不同服务器、课题组和管理员各自维护账号，权限边界不清晰'],
+  ['monitor', 'GPU 使用不可见', '谁在用、排队多久、资源是否闲置，缺少统一数据判断'],
+  ['workflow', '环境与任务割裂', '模型训练、数据处理和环境配置依赖人工经验，难以稳定复用'],
+  ['shield', '共享规则难落地', '课题组之间需要共享资源，但缺少可执行的配额、队列和审计机制']
+];
+
+const governance = [
+  ['资源接入', '把院系已有 GPU 服务器、存储和网络资源接入统一平台'],
+  ['用户分组', '按课题组、项目或实验室建立用户组织和权限边界'],
+  ['任务调度', '将训练、推理、Notebook 和开发环境纳入统一任务入口'],
+  ['数据可视', '持续查看资源使用、任务状态、队列情况和历史统计'],
+  ['运营优化', '根据使用数据调整资源规则，减少人工协调和资源浪费']
+];
+
+const serviceCards = [
+  ['平台入口', '元Space 作为院系科研算力统一入口，连接用户、资源、任务和环境'],
+  ['资源秩序', '用配额、队列、权限和统计规则，让多课题组共享更有秩序'],
+  ['使用体验', '降低学生和老师在环境配置、资源申请和任务启动上的时间成本']
+];
+
+const products = ['元Space', 'GPU 资源池', '课题组管理', '任务调度', '环境管理', '使用统计'];
+---
+
+<BaseLayout
+  title="院系科研算力平台 | 元物质"
+  description="元物质面向学院、重点实验室和多课题组共享平台，提供元Space科研智算平台、GPU资源池治理、用户权限和任务调度能力"
+>
+  <section class="college-hero">
+    <div class="section-inner">
+      <div class="college-hero-stage" aria-label="院系科研算力平台首图">
+        <img class="college-hero-image" src="/assets/college-research-platform-hero.png" alt="院系共享 GPU 资源池与科研算力平台场景" />
+        <div class="college-hero-copy">
+          <span class="badge">科研场景 / 院系平台</span>
+          <h1>把院系分散算力组织成可管理、可使用的平台</h1>
+          <p>
+            面向学院、重点实验室和多课题组共享场景，元物质以元Space 为平台入口，让 GPU、用户、任务和科研环境形成清晰秩序
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#college-governance">查看治理路径</a>
+            <a class="button secondary" href="/contact/">咨询平台建设</a>
+          </div>
+        </div>
+        <div class="college-hero-metrics">
+          <div><strong>GPU 资源池</strong><span>统一接入</span></div>
+          <div><strong>课题组</strong><span>按组管理</span></div>
+          <div><strong>任务队列</strong><span>状态可见</span></div>
+          <div><strong>权限规则</strong><span>边界清晰</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section college-audience">
+    <div class="section-inner college-audience-grid">
+      <div class="section-head">
+        <div class="eyebrow">适合对象</div>
+        <h2>面向已有算力资源、但缺少统一管理入口的院系团队</h2>
+        <p>院系平台的重点不是重新发明一套系统，而是把已有设备、用户和科研任务接入可运营的公共秩序</p>
+      </div>
+      <div class="college-service-grid">
+        {serviceCards.map(([title, desc]) => (
+          <article>
+            <h3>{title}</h3>
+            <p>{desc}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section college-problems">
+    <div class="section-inner">
+      <div class="section-head">
+        <div class="eyebrow">常见卡点</div>
+        <h2>院系平台的核心问题，是让共享资源从人工协调变成规则化使用</h2>
+      </div>
+      <div class="school-problem-grid college-problem-grid">
+        {painPoints.map(([icon, title, desc]) => (
+          <article>
+            <span class={`school-icon ${icon}`} aria-hidden="true"></span>
+            <h3>{title}</h3>
+            <p>{desc}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section college-platform-section">
+    <div class="section-inner college-platform-grid">
+      <div class="college-platform-media">
+        <img src="/assets/yuanspace-groups.png" alt="元Space 课题组管理界面" />
+      </div>
+      <div class="college-platform-copy">
+        <div class="section-head">
+          <div class="eyebrow">平台能力</div>
+          <h2>元Space 负责把院系算力资源变成可申请、可管理、可统计的平台</h2>
+          <p>平台不只是后台管理工具，而是院系算力服务的日常工作台，帮助管理员建立共享规则，也让科研团队更稳定地使用资源</p>
+        </div>
+        <div class="school-product-pills">
+          {products.map((item) => <span>{item}</span>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section college-governance" id="college-governance">
+    <div class="section-inner">
+      <div class="section-head center">
+        <div class="eyebrow">治理路径</div>
+        <h2>从资源接入到持续运营，建立院系科研算力的使用秩序</h2>
+      </div>
+      <div class="college-governance-flow">
+        {governance.map(([title, desc], index) => (
+          <article>
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <h3>{title}</h3>
+            <p>{desc}</p>
+            {index < governance.length - 1 && <i aria-hidden="true"></i>}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section college-task-section">
+    <div class="section-inner college-task-grid">
+      <div class="college-task-copy">
+        <div class="section-head">
+          <div class="eyebrow">科研任务</div>
+          <h2>让任务、环境和资源使用状态被持续看见</h2>
+          <p>当任务运行、排队、资源占用和环境信息集中到同一个平台，院系才能从经验管理走向数据化运营</p>
+        </div>
+      </div>
+      <div class="college-task-media">
+        <img src="/assets/yuanspace-task.png" alt="元Space 任务管理界面" />
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="section-inner cta-grid">
+      <div>
+        <h2>准备把院系已有 GPU 资源纳入统一平台</h2>
+        <p>可以先从设备清单、课题组数量、用户权限、任务类型和当前使用规则开始梳理，判断平台接入和治理路径</p>
+      </div>
+      <a class="button secondary" href="/contact/">咨询平台建设</a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,36 +1,252 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const scenarios = [
+  {
+    id: 'school',
+    icon: 'campus',
+    href: '/scenarios/school-computing-center/',
+    label: '校级平台',
+    title: '学校智算中心建设',
+    tagline: '面向全校公共算力与数据中心基础设施',
+    audience: '信息中心、科研院、公共平台和学校级智算建设团队',
+    pain: '算力资源分散、平台入口不统一、运维和审计压力大，科研团队很难稳定获得公共算力',
+    approach: '从 GPU、CPU、网络、存储、机房环境到统一平台和运维体系，建设学校级科研智算基础设施',
+    example: '某高校希望把分散采购的算力资源纳入统一平台，让科研团队按需申请、使用和统计资源',
+    combo: ['智算中心工程', '元Space 平台', '数据中心交付', '运维服务']
+  },
+  {
+    id: 'college',
+    icon: 'platform',
+    href: '/scenarios/college-research-platform/',
+    label: '院系平台',
+    title: '院系科研算力平台',
+    tagline: '把院系分散资源组织成可管理、可使用的平台',
+    audience: '学院、重点实验室、交叉研究中心和多课题组共享平台',
+    pain: '院系内有服务器和 GPU，但账号、队列、环境、使用统计和资源分配缺少统一秩序',
+    approach: '以元Space 为平台入口，连接院系算力资源、用户权限、任务管理和科研环境，形成院系级科研算力平台',
+    example: '某学院已有多台 GPU 服务器，希望减少人工排班和抢卡，让不同课题组按规则使用资源',
+    combo: ['元Space 平台', 'GPU 资源池', '用户权限', '任务调度']
+  },
+  {
+    id: 'group',
+    icon: 'cluster',
+    href: '/scenarios/research-group-computing-center/',
+    label: '课题组节点',
+    title: '课题组小型智算中心',
+    tagline: '元小鲲 + 元Space + 科研工作流',
+    audience: '青年 PI、课题组负责人和需要本地 AI 算力的科研团队',
+    pain: '课题组想快速启动 AI 科研，但机房、噪音、散热、环境配置和学生运维都会拖慢节奏',
+    approach: '用元小鲲把本地算力带进课题组，用元Space 管理资源、任务、环境和用户，让科研工作流可以继承',
+    example: '某新建课题组需要尽快跑通模型训练和推理任务，希望本地算力开箱可用、低噪运行、后续可扩展',
+    combo: ['元小鲲一体机', '元Space 平台', '小型集群', '科研工作流']
+  },
+  {
+    id: 'lab',
+    icon: 'lab',
+    label: '实验室 AI',
+    title: '实验室 AI 科研算力',
+    tagline: '降低非计算机课题组进入 AI 科研的门槛',
+    audience: '生命科学、材料、医学、化学、环境、农学、遥感等 AI 化转型团队',
+    pain: '科研团队有 AI 方法需求，但经常卡在环境搭建、数据流转、任务运行和算力使用习惯上',
+    approach: '围绕实验室常用任务配置本地算力、平台入口和基础环境，让学生少折腾配置，把时间放回科研问题',
+    example: '某实验室开始引入深度学习方法，希望先用小规模本地算力跑通数据处理、训练和复现实验',
+    combo: ['本地 AI 算力', '环境管理', '数据协作', '使用培训']
+  }
+];
+
+const visualStories = [
+  {
+    label: '现场算力',
+    title: '让本地 AI 算力进入课题组和实验室',
+    desc: '适合对噪音、部署空间和快速启动有要求的科研团队',
+    image: '/assets/xiaokun-hero-render.png',
+    alt: '元小鲲科研智算一体机'
+  },
+  {
+    label: '平台管理',
+    title: '把用户、GPU、任务和环境放进同一个平台',
+    desc: '适合院系平台、共享资源池和已有 GPU 治理场景',
+    image: '/assets/yuanspace-dashboard.png',
+    alt: '元Space 科研智算平台仪表盘'
+  },
+  {
+    label: '科研任务',
+    title: '从资源可见走向任务可管、环境可继承',
+    desc: '适合多用户协作、任务运行和科研环境沉淀',
+    image: '/assets/yuanspace-task.png',
+    alt: '元Space 任务管理界面'
+  }
+];
 ---
 <BaseLayout title="科研场景 | 元物质" description="元物质围绕学校智算中心、院系科研算力平台、课题组小型智算中心和实验室AI科研算力建设科研智算能力">
-  <section class="page-title">
-    <div class="section-inner">
-      <div class="eyebrow">科研场景</div>
-      <h1>从学校平台到课题组节点，科研智算正在走向真实科研现场</h1>
-      <p>不同科研组织需要的不是同一套设备，而是适配自身规模、任务、预算和运维条件的科研智算能力</p>
+  <section class="scenario-hero">
+    <div class="section-inner scenario-hero-grid">
+      <div class="scenario-hero-copy">
+        <span class="badge">科研场景</span>
+        <h1>不同科研组织，需要不同形态的 AI 算力入口</h1>
+        <p class="lead">
+          从学校平台、院系资源到课题组和实验室，元物质帮助科研团队把算力、环境和工作流组织起来，让 AI 算力进入真实科研现场
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#scenario-overview">查看场景</a>
+          <a class="button secondary" href="/contact/">咨询科研智算方案</a>
+        </div>
+      </div>
+      <div class="scenario-hero-visual" aria-label="科研场景首图">
+        <div class="scenario-visual-backdrop" aria-hidden="true"></div>
+        <img class="scenario-visual-product" src="/assets/xiaokun-hero-render.png" alt="元小鲲科研智算一体机" />
+        <div class="scenario-visual-panel">
+          <span>科研智算场景</span>
+          <strong>从公共平台到实验室现场</strong>
+          <p>按组织规模、使用方式和运维条件选择建设路径</p>
+        </div>
+        <div class="scenario-visual-metrics">
+          <div><strong>校级</strong><span>公共平台</span></div>
+          <div><strong>院系</strong><span>资源秩序</span></div>
+          <div><strong>课题组</strong><span>本地算力</span></div>
+        </div>
+      </div>
     </div>
   </section>
-  <section class="page-section">
-    <div class="section-inner grid-4">
-      <article class="feature-card">
-        <span class="icon">校</span>
-        <h3>学校智算中心建设</h3>
-        <p>面向学校层面的公共算力、数据中心、统一平台和运维体系建设</p>
-      </article>
-      <article class="feature-card">
-        <span class="icon">院</span>
-        <h3>院系科研算力平台</h3>
-        <p>面向多个课题组共享资源，关注账号、任务、资源和使用统计</p>
-      </article>
-      <article class="feature-card">
-        <span class="icon">组</span>
-        <h3>课题组小型智算中心</h3>
-        <p>元小鲲 + 元Space + 科研工作流，帮助课题组拥有自己的科研智算入口</p>
-      </article>
-      <article class="feature-card">
-        <span class="icon">实</span>
-        <h3>实验室 AI 科研算力</h3>
-        <p>面向青年 PI 和 AI 化转型团队，降低本地算力部署和使用门槛</p>
-      </article>
+
+  <section class="page-section scenario-overview-section" id="scenario-overview">
+    <div class="section-inner">
+      <div class="section-head">
+        <div class="eyebrow">四类入口</div>
+        <h2>先判断科研组织的使用方式，再选择建设路径</h2>
+        <p>同样是 AI 算力，不同组织面对的不是同一个问题，校级更关注公共平台，院系更关注资源秩序，课题组和实验室更关注快速可用</p>
+      </div>
+      <div class="scenario-card-grid">
+        {scenarios.map((item) => (
+          <a class={`scenario-card ${item.id}`} href={item.href ?? `#${item.id}`}>
+            <span class={`scenario-icon ${item.icon}`} aria-hidden="true"></span>
+            <div>
+              <span>{item.label}</span>
+              <h3>{item.title}</h3>
+              <p>{item.tagline}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section scenario-visual-story-section">
+    <div class="section-inner">
+      <div class="section-head">
+        <div class="eyebrow">从平台到现场</div>
+        <h2>场景不是孤立页面，而是算力、平台和科研任务的组合</h2>
+        <p>科研智算建设要同时看硬件能否进入现场、平台能否持续管理，以及科研任务能否稳定运行</p>
+      </div>
+      <div class="scenario-visual-grid">
+        {visualStories.map((item) => (
+          <article class="scenario-visual-card">
+            <div class="scenario-visual-image">
+              <img src={item.image} alt={item.alt} />
+            </div>
+            <div>
+              <span>{item.label}</span>
+              <h3>{item.title}</h3>
+              <p>{item.desc}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section scenario-detail-section">
+    <div class="section-inner scenario-detail-stack">
+      {scenarios.map((item, index) => (
+        <article class={`scenario-detail ${item.id}`} id={item.id}>
+          <div class="scenario-detail-main">
+            <div class="scenario-kicker">
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <strong>{item.label}</strong>
+            </div>
+            <h2>{item.title}</h2>
+            <p>{item.tagline}</p>
+            <div class="scenario-combo">
+              {item.combo.map((tag) => <span>{tag}</span>)}
+            </div>
+          </div>
+          <div class="scenario-detail-grid">
+            <div>
+              <span>适合对象</span>
+              <p>{item.audience}</p>
+            </div>
+            <div>
+              <span>常见卡点</span>
+              <p>{item.pain}</p>
+            </div>
+            <div>
+              <span>元物质怎么介入</span>
+              <p>{item.approach}</p>
+            </div>
+            <div>
+              <span>典型需求</span>
+              <p>{item.example}</p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="page-section scenario-matrix-section">
+    <div class="section-inner">
+      <div class="section-head center">
+        <div class="eyebrow">能力组合</div>
+        <h2>不同场景对应不同能力，不把所有客户塞进同一套方案</h2>
+      </div>
+      <div class="capability-matrix">
+        <div class="matrix-row matrix-head">
+          <span>场景</span>
+          <span>元小鲲</span>
+          <span>元Space</span>
+          <span>工程能力</span>
+          <span>交付运维</span>
+        </div>
+        <div class="matrix-row">
+          <span>学校智算中心建设</span>
+          <strong>按需接入</strong>
+          <strong>统一平台</strong>
+          <strong>重点能力</strong>
+          <strong>重点能力</strong>
+        </div>
+        <div class="matrix-row">
+          <span>院系科研算力平台</span>
+          <strong>可扩展节点</strong>
+          <strong>重点能力</strong>
+          <strong>资源整合</strong>
+          <strong>平台运维</strong>
+        </div>
+        <div class="matrix-row">
+          <span>课题组小型智算中心</span>
+          <strong>重点能力</strong>
+          <strong>重点能力</strong>
+          <strong>小型集群</strong>
+          <strong>快速交付</strong>
+        </div>
+        <div class="matrix-row">
+          <span>实验室 AI 科研算力</span>
+          <strong>优先推荐</strong>
+          <strong>基础管理</strong>
+          <strong>环境适配</strong>
+          <strong>使用培训</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="section-inner cta-grid">
+      <div>
+        <h2>不确定自己的团队适合哪种科研智算形态</h2>
+        <p>可以从组织规模、现有设备、部署空间、使用人群和科研任务开始评估，一起判断适合校级平台、院系平台、一体机还是小型集群</p>
+      </div>
+      <a class="button secondary" href="/contact/">联系咨询</a>
     </div>
   </section>
 </BaseLayout>

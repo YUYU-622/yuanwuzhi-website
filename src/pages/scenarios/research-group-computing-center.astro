@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const painPoints = [
+  ['monitor', '启动慢', '课题组想尽快跑模型和实验，但采购、部署、环境配置经常拖慢启动节奏'],
+  ['network', '空间受限', '传统服务器对噪音、散热、机房和运维条件要求高，很难贴近实验室现场'],
+  ['workflow', '经验难继承', '学生毕业、项目切换或工具升级后，镜像、脚本、数据和实验经验容易断档'],
+  ['shield', '使用边界不清', '多名学生共用算力时，任务排队、权限管理和资源统计容易依赖人工协调']
+];
+
+const combo = [
+  ['元小鲲科研智算一体机', '把本地 AI 算力带进课题组和实验室，让高频科研任务更快启动'],
+  ['元Space 科研智算平台', '统一管理 GPU、用户、任务、环境和数据，让资源使用状态持续可见'],
+  ['科研工作流', '把镜像、工具、脚本、数据和实验过程沉淀下来，减少重复配置和经验流失']
+];
+
+const process = [
+  ['01', '任务梳理', '明确课题组常用模型、数据规模、使用人数和高频科研任务'],
+  ['02', '本地部署', '根据实验室空间、噪音和供电条件部署元小鲲一体机'],
+  ['03', '平台接入', '接入元Space，建立用户、权限、任务和环境管理规则'],
+  ['04', '工作流沉淀', '固化常用镜像、工具链、数据路径和实验模板'],
+  ['05', '扩展组网', '按课题组发展阶段扩展节点，形成小型本地算力集群']
+];
+
+const products = ['元小鲲', '元Space', '浸没式液冷', '小型集群', '环境镜像', '科研工作流'];
+---
+
+<BaseLayout
+  title="课题组小型智算中心 | 元物质"
+  description="元物质面向青年PI、课题组和实验室，提供元小鲲科研智算一体机、元Space平台和科研工作流能力，建设课题组小型智算中心"
+>
+  <section class="group-hero">
+    <div class="section-inner">
+      <div class="group-hero-stage" aria-label="课题组小型智算中心首图">
+        <img class="group-hero-image" src="/assets/research-group-computing-center-hero.png" alt="课题组实验室内的元小鲲科研智算一体机场景" />
+        <div class="group-hero-copy">
+          <span class="badge">科研场景 / 课题组节点</span>
+          <h1>让课题组拥有自己的小型智算中心</h1>
+          <p>
+            以元小鲲科研智算一体机进入实验室现场，结合元Space 平台和科研工作流，让本地 AI 算力更安静、更可见、更容易被团队持续使用
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#group-combo">查看能力组合</a>
+            <a class="button secondary" href="/contact/">咨询部署方式</a>
+          </div>
+        </div>
+        <div class="group-hero-metrics">
+          <div><strong>本地算力</strong><span>贴近科研现场</span></div>
+          <div><strong>低噪运行</strong><span>适合实验室空间</span></div>
+          <div><strong>平台管理</strong><span>资源任务可见</span></div>
+          <div><strong>工作流</strong><span>经验可继承</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section group-audience">
+    <div class="section-inner college-audience-grid">
+      <div class="section-head">
+        <div class="eyebrow">适合对象</div>
+        <h2>面向需要快速启动本地 AI 科研能力的课题组和实验室</h2>
+        <p>课题组小型智算中心不是把机房搬进实验室，而是把高频 AI 科研任务需要的算力、平台和工作流放到离科研更近的位置</p>
+      </div>
+      <div class="college-service-grid">
+        <article>
+          <h3>青年 PI 快速启动</h3>
+          <p>新建课题组需要尽快跑通模型训练、推理和数据处理任务</p>
+        </article>
+        <article>
+          <h3>非计算机课题组 AI 化</h3>
+          <p>生命科学、材料、医学等团队希望降低环境配置和算力使用门槛</p>
+        </article>
+        <article>
+          <h3>已有设备小型集群化</h3>
+          <p>已有本地 GPU 资源，希望按课题组规则统一纳管和逐步扩展</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section group-problems">
+    <div class="section-inner">
+      <div class="section-head">
+        <div class="eyebrow">常见卡点</div>
+        <h2>课题组真正需要的，是能长期稳定使用的本地科研算力秩序</h2>
+      </div>
+      <div class="school-problem-grid group-problem-grid">
+        {painPoints.map(([icon, title, desc]) => (
+          <article>
+            <span class={`school-icon ${icon}`} aria-hidden="true"></span>
+            <h3>{title}</h3>
+            <p>{desc}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section group-combo" id="group-combo">
+    <div class="section-inner">
+      <div class="section-head center">
+        <div class="eyebrow">核心组合</div>
+        <h2>元小鲲 + 元Space + 科研工作流，形成课题组小型智算中心</h2>
+      </div>
+      <div class="group-combo-grid">
+        {combo.map(([title, desc], index) => (
+          <article>
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <h3>{title}</h3>
+            <p>{desc}</p>
+            {index < combo.length - 1 && <i aria-hidden="true"></i>}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section group-product-section">
+    <div class="section-inner college-platform-grid">
+      <div class="group-product-media">
+        <img src="/assets/xiaokun-hero-render.png" alt="元小鲲科研智算一体机" />
+      </div>
+      <div class="college-platform-copy">
+        <div class="section-head">
+          <div class="eyebrow">产品入口</div>
+          <h2>元小鲲负责进入现场，让课题组拥有可扩展的本地 AI 算力节点</h2>
+          <p>浸没式液冷形态降低噪音和散热压力，配合本地部署与小型集群扩展，让课题组从单点算力逐步走向稳定的本地科研算力中心</p>
+        </div>
+        <div class="school-product-pills">
+          {products.map((item) => <span>{item}</span>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section group-platform-section">
+    <div class="section-inner college-task-grid">
+      <div class="college-task-copy">
+        <div class="section-head">
+          <div class="eyebrow">平台管理</div>
+          <h2>元Space 让本地算力从设备变成课题组的共享工作台</h2>
+          <p>老师和学生可以围绕用户、任务、环境、数据和 GPU 资源建立统一入口，减少人工排队和重复配置</p>
+        </div>
+      </div>
+      <div class="college-task-media">
+        <img src="/assets/yuanspace-task.png" alt="元Space 任务管理界面" />
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section group-process-section">
+    <div class="section-inner">
+      <div class="section-head">
+        <div class="eyebrow">建设路径</div>
+        <h2>从单台一体机到小型集群，按课题组阶段逐步扩展</h2>
+      </div>
+      <div class="college-governance-flow group-process-flow">
+        {process.map(([num, title, desc], index) => (
+          <article>
+            <span>{num}</span>
+            <h3>{title}</h3>
+            <p>{desc}</p>
+            {index < process.length - 1 && <i aria-hidden="true"></i>}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="section-inner cta-grid">
+      <div>
+        <h2>准备为课题组搭建本地科研智算环境</h2>
+        <p>可以先从任务类型、预算规模、部署空间、噪音要求和未来扩展计划开始评估，判断适合单台一体机还是小型集群</p>
+      </div>
+      <a class="button secondary" href="/contact/">咨询部署方式</a>
+    </div>
+  </section>
+</BaseLayout>
